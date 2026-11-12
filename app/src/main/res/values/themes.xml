@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.GrsApp4" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+    </style>
+
+    <style name="Theme.GrsApp4" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+    </style>
+
+    <style name="Theme.GrsApp4.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_background_color</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.GrsApp4</item>
+    </style>
+</resources>
