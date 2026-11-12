@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:text="@string/settings_title"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:fontFamily="@font/app_font"/>
 
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/darkModeSwitch"

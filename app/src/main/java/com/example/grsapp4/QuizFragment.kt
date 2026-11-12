@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.grsapp4.databinding.FragmentQuizBinding
+import kotlinx.coroutines.launch
 
 class QuizFragment : Fragment() {
 
@@ -31,17 +33,23 @@ class QuizFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val dbHelper = QuizDbHelper(requireContext())
-        questions = dbHelper.getAllQuestions()
-        dbHelper.close()
+        viewLifecycleOwner.lifecycleScope.launch {
+            val dao = QuizDatabase.getInstance(requireContext()).questionDao()
 
-        if (questions.isEmpty()) {
-            binding.questionText.text = getString(R.string.no_questions)
-            disableOptions()
-            return
+            if (dao.count() == 0) {
+                dao.insertAll(QuizSeedData.questions())
+            }
+
+            questions = dao.getAll()
+
+            if (questions.isEmpty()) {
+                binding.questionText.text = getString(R.string.no_questions)
+                disableOptions()
+                return@launch
+            }
+
+            showQuestion()
         }
-
-        showQuestion()
     }
 
     private fun showQuestion() {
