@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">GrsApp4</string>
 
@@ -11,12 +12,19 @@
     <string name="question_format">Вопрос %1$d из %2$d: %3$s</string>
     <string name="no_questions">Вопросы не найдены</string>
 
-    <string name="quiz_result_format">Правильных ответов: %1$d из %2$d</string>
+    <string name="result_score_format">Правильных ответов: %1$d из %2$d</string>
+    <string name="result_beginner_title">Новичок</string>
+    <string name="result_beginner_description">Вы только начинаете свой путь в Android-разработке. Есть куда расти — попробуйте пройти тест ещё раз!</string>
+    <string name="result_good_title">Хороший результат</string>
+    <string name="result_good_description">У вас прочные базовые знания. Немного практики — и вы выйдете на новый уровень.</string>
+    <string name="result_expert_title">Эксперт</string>
+    <string name="result_expert_description">Отличные знания! Вы уверенно ориентируетесь в основах Android-разработки. Так держать!</string>
+    <string name="restart_button">Пройти заново</string>
+    <string name="logout_button">Выйти</string>
 
     <string name="settings_title">Настройки</string>
     <string name="dark_mode_switch">Тёмная тема</string>
     <string name="back_button">Назад</string>
 
     <string name="settings_button">Настройки</string>
-    <string name="logout_button">Выйти</string>
 </resources>

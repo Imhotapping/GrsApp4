@@ -20,6 +20,7 @@ class QuizFragment : Fragment() {
     private var currentIndex = 0
     private var score = 0
     private var answered = false
+    private val selectedAnswers = mutableListOf<Int>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -85,18 +86,23 @@ class QuizFragment : Fragment() {
         if (answered) return
         answered = true
 
+        // Сохраняем выбор пользователя и начисляем балл за правильный ответ
+        selectedAnswers.add(selectedIndex)
         if (selectedIndex == questions[currentIndex].correctIndex) {
-            score++
+            score += 1
         }
 
         currentIndex++
 
         if (currentIndex >= questions.size) {
+            val maxScore = questions.size   // 8
+
             findNavController().navigate(
                 R.id.action_quizFragment_to_resultFragment,
                 bundleOf(
                     "score" to score,
-                    "total" to questions.size
+                    "maxScore" to maxScore,
+                    "selectedAnswers" to selectedAnswers.toIntArray()
                 )
             )
         } else {

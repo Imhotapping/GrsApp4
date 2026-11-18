@@ -12,7 +12,7 @@ data class Question(
     @ColumnInfo(name = "option_2") val option2: String,
     @ColumnInfo(name = "option_3") val option3: String,
     @ColumnInfo(name = "option_4") val option4: String,
-    @ColumnInfo(name = "correct_index") val correctIndex: Int
+    @ColumnInfo(name = "correct_index") val correctIndex: Int   // 0..3
 ) {
     val options: List<String>
         get() = listOf(option1, option2, option3, option4)

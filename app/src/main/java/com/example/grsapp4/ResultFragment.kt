@@ -26,9 +26,21 @@ class ResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val score = arguments?.getInt("score") ?: 0
-        val total = arguments?.getInt("total") ?: 0
+        val maxScore = arguments?.getInt("maxScore") ?: 0
 
-        binding.resultText.text = getString(R.string.quiz_result_format, score, total)
+        val (titleRes, descriptionRes) = when {
+            score >= 7 -> R.string.result_expert_title   to R.string.result_expert_description
+            score >= 4 -> R.string.result_good_title     to R.string.result_good_description
+            else       -> R.string.result_beginner_title to R.string.result_beginner_description
+        }
+
+        binding.resultTitle.text = getString(titleRes)
+        binding.resultDescription.text = getString(descriptionRes)
+        binding.resultScore.text = getString(R.string.result_score_format, score, maxScore)
+
+        binding.restartButton.setOnClickListener {
+            findNavController().navigate(R.id.action_resultFragment_to_quizFragment)
+        }
 
         binding.logoutButton.setOnClickListener {
             findNavController().navigate(R.id.action_resultFragment_to_mainFragment)

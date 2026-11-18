@@ -50,6 +50,22 @@ object QuizSeedData {
             option3 = "RecyclerView",
             option4 = "Toast",
             correctIndex = 0
+        ),
+        Question(
+            text = "Какая библиотека из перечисленных относится к Jetpack?",
+            option1 = "React",
+            option2 = "Room",
+            option3 = "Flask",
+            option4 = "Laravel",
+            correctIndex = 1
+        ),
+        Question(
+            text = "Что делает метод findViewById()?",
+            option1 = "Создаёт новую Activity",
+            option2 = "Запускает фоновый поток",
+            option3 = "Находит View по идентификатору",
+            option4 = "Сохраняет данные в файл",
+            correctIndex = 2
         )
     )
 }

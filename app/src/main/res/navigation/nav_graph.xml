@@ -43,9 +43,15 @@
             app:argType="integer" />
 
         <argument
-            android:name="total"
+            android:name="maxScore"
             android:defaultValue="0"
             app:argType="integer" />
+
+        <action
+            android:id="@+id/action_resultFragment_to_quizFragment"
+            app:destination="@id/quizFragment"
+            app:popUpTo="@id/quizFragment"
+            app:popUpToInclusive="true" />
 
         <action
             android:id="@+id/action_resultFragment_to_mainFragment"
